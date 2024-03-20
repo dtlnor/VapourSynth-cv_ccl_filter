@@ -15,13 +15,22 @@ Exclude the labels **under** `ccl_thr`
 core.cv_ccl.ExcludeCCLUnder(clip mask, int cc_thr[, int connectivity, int ccl_type, int cc_stat_type])
 ```
 
-For example, if you want to remove all the connected components smaller than 250 pixels (in area) inside your mask clip, you can simply write:
+For example, if you want to remove all the connected components smaller than 2500 pixels (in area) inside your mask clip, you can simply write:
 ```python
-core.cv_ccl.ExcludeCCLUnder(mask, 250)
+core.cv_ccl.ExcludeCCLUnder(mask, 2500)
 ```
 
 <details>
 <summary>Sample</summary>
+
+`Original`  
+![image](https://github.com/dtlnor/VapourSynth-cv_ccl_filter/assets/21131439/cafc05ca-d759-412c-a791-a15ea13a17f8)
+
+`ExcludeCCLUnder 2500`  
+![image](https://github.com/dtlnor/VapourSynth-cv_ccl_filter/assets/21131439/566c7370-b0ec-4930-a11b-2673b3f98f53)
+
+`ExcludeCCLAbove 2500`  
+![image](https://github.com/dtlnor/VapourSynth-cv_ccl_filter/assets/21131439/7141aeb2-5915-4600-90b9-fadc4100ffc2)
 
 </details>
 
