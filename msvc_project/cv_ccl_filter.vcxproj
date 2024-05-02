@@ -156,6 +156,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\src\CCLAboveFilter.cpp" />
+    <ClCompile Include="..\src\CCLGetStats.cpp" />
     <ClCompile Include="..\src\shared.cpp" />
     <ClCompile Include="..\src\CCLUnderFilter.cpp" />
   </ItemGroup>

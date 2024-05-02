@@ -17,3 +17,4 @@ struct MaskData final {
 
 extern void VS_CC excludeCCLAboveCreate(const VSMap* in, VSMap* out, void* userData, VSCore* core, const VSAPI* vsapi);
 extern void VS_CC excludeCCLUnderCreate(const VSMap* in, VSMap* out, void* userData, VSCore* core, const VSAPI* vsapi);
+extern void VS_CC getCCLStatsCreate(const VSMap* in, VSMap* out, void* userData, VSCore* core, const VSAPI* vsapi);

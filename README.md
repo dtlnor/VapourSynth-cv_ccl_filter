@@ -5,6 +5,8 @@ Vapoursynth Connected Components Label Filtering from OpenCV.
 
 Using OpenCV's [`connectedComponentsWithStats`](https://docs.opencv.org/5.x/d3/dc0/group__imgproc__shape.html#ga107a78bf7cd25dec05fb4dfc5c9e765f) to compute the connected components labeled image of a boolean image and also get statistics for each label. Then filter the labeled content based on the statistical results.
 
+Require VS API >= 4.0
+
 ## Usage
 Exclude the labels **above** `ccl_thr`
 ```
@@ -13,6 +15,10 @@ core.cv_ccl.ExcludeCCLAbove(clip mask, int cc_thr[, int connectivity, int ccl_ty
 Exclude the labels **under** `ccl_thr`
 ```
 core.cv_ccl.ExcludeCCLUnder(clip mask, int cc_thr[, int connectivity, int ccl_type, int cc_stat_type])
+```
+Read all the stats from `cv::connectedComponentsWithStats` to FrameProps  
+```
+core.cv_ccl.GetCCLStats(clip mask[, int connectivity, int ccl_type])
 ```
 
 For example, if you want to remove all the connected components smaller than 2500 pixels (in area) inside your mask clip, you can simply write:
@@ -33,6 +39,24 @@ core.cv_ccl.ExcludeCCLUnder(mask, 2500)
 ![image](https://github.com/dtlnor/VapourSynth-cv_ccl_filter/assets/21131439/7141aeb2-5915-4600-90b9-fadc4100ffc2)
 
 </details>
+
+If you want to get all the ccl stats data, using `core.cv_ccl.GetCCLStats`, you will get FrameProps like:
+
+```
+_CCLStatNumLabels
+_CCLStatAreas
+_CCLStatLefts
+_CCLStatTops
+_CCLStatWidths
+_CCLStatHeights
+_CCLStatCentroids_x
+_CCLStatCentroids_y
+```
+
+which should contains array (except `_CCLStatNumLabels`) if the input clip isn't a blank clip. Note that the first label is always the background label, so you will like to get the frame prop like this
+```py
+f.props.get('_CCLStatAreas', None)[1:]
+```
 
 ***Parameters:***
 
