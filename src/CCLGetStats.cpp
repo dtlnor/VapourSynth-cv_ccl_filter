@@ -85,7 +85,7 @@ void VS_CC getCCLStatsCreate(const VSMap* in, VSMap* out, void* userData, VSCore
 		d->ccl_type = cv::CCL_DEFAULT;
 	else {
 		if (ccl_type < -1 || ccl_type > 5) {
-			vsapi->mapSetError(out, "GetCCLStats: ccl_type must be between -1 and 6.");
+			vsapi->mapSetError(out, "GetCCLStats: ccl_type must be between -1 and 5.");
 			vsapi->freeNode(d->node);
 			return;
 		}
